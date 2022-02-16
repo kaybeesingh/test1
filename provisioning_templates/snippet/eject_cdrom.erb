@@ -1,0 +1,15 @@
+<%#
+name: eject_cdrom
+snippet: true
+model: ProvisioningTemplate
+organizations:
+- RedHat
+locations:
+- GSS
+-%>
+<%# 
+  This template will eject DVD/CD ROM for bootdisk provisioning method
+-%>
+<% if @host.respond_to?(:bootdisk_build?) && @host.bootdisk_build? -%>
+eject -v
+<% end -%>

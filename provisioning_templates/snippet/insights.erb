@@ -1,0 +1,19 @@
+<%#
+name: insights
+snippet: true
+model: ProvisioningTemplate
+organizations:
+- RedHat
+locations:
+- GSS
+-%>
+<% if @host.operatingsystem.name == 'RedHat' -%>
+echo '#'
+echo '# Installing Insights client'
+echo '#'
+
+yum install -y insights-client
+insights-client --test-connection
+insights-client --register
+
+<% end -%>
